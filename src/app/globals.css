@@ -10,13 +10,60 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-translate-up: fade-translate-up 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+  --animate-zoom-in: fade-zoom-in 1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #292929;
     --foreground: #ededed;
   }
+}
+
+@layer base {
+  h1 {
+    font-size: theme(fontSize.7xl);
+  }
+}
+
+
+@keyframes fade-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-translate-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-translate-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-translate-left {
+  animation: fade-translate-left 1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 body {
