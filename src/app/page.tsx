@@ -26,7 +26,7 @@ export default function Home() {
       <Section className="flex flex-col md:flex-row px-4 md:px-10 justify-between items-center" id="about-me" title="About Me">
         <p data-aos="fade-right" data-aos-delay="100" className="text-xl max-w-3xl md:max-w-xl rounded-4xl text-left">
             {`
-            I'm a full-stack software engineer with a strong foundation in backend development, product thinking, and user-centered design. I began my career in mobile development and have since worked across the stack using technologies like Java, Spring, React, and NodeJS.
+            I'm a full-stack software engineer with a strong foundation in both backend and frontend development, product thinking, and user-centered design. Whether building robust APIs, architecting scalable systems, or crafting engaging user interfaces, I enjoy working across the stack using technologies like Java, Spring, React, and NodeJS.
 
             Over the years, I've helped clients—from large enterprises to startups—build reliable, maintainable systems while mentoring teams in practices like Test-Driven Development and Extreme Programming. My approach is deeply collaborative, balancing technical excellence with a focus on user experience and business goals.
 
