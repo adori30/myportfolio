@@ -2,10 +2,10 @@ export default function NavBar() {
   return (
     <section
       className="flex flex-row items-center px-4 text-xl z-20 bg-gradient-to-r from-teal-300 to-teal-700
-     justify-end w-full h-20 sticky top-0 gap-12"
+     justify-end w-full h-16 sticky top-0 gap-12"
     >
-      <MenuItem>About Me</MenuItem>
-      <MenuItem>My Experiences</MenuItem>
+      <MenuItem href="#about-me">About Me</MenuItem>
+      {/* <MenuItem>My Experiences</MenuItem> */}
       <div></div>
     </section>
   );
@@ -13,10 +13,11 @@ export default function NavBar() {
 
 type MenuItemProps = {
   children?: React.ReactElement | string;
+  href?: string;
 }
 
-function MenuItem({children}: MenuItemProps) {
+function MenuItem({children, href}: MenuItemProps) {
   return (
-    <div className="cursor-pointer">{children}</div>
+    <a className="cursor-pointer" href={href}>{children}</a>
   )
 }

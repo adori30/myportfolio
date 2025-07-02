@@ -8,15 +8,14 @@ type Props = {
 export default function Section({ title, className, children, id }: Props) {
   return (
     <section
-      className="p-8 flex flex-col w-full"
+      className="px-8 flex flex-col w-full h-screen"
       id={id}
-      style={{ minHeight: "calc(100vh - 80px)" }}
     >
-      <div className="relative inline-block w-96 h-32 self-center mb-24">
-        <div className="absolute w-70 h-8 bg-teal-800 bottom-7 right-12" />
-        <h1 className="absolute top-0 left-0">{title}</h1>
+      <div className="relative inline-block w-96 md:h-32 self-center mb-12">
+        <div className="absolute w-40 h-8 bg-teal-800 bottom-7 right-24 top-30" />
+        <h3 className="absolute top-20 left-12">{title}</h3>
       </div>
-      <div className={className}>{children}</div>
+      <div className={`mt-28 md:mt-0 h-full ${className}`}>{children}</div>
     </section>
   );
 }

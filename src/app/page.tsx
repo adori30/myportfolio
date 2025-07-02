@@ -17,14 +17,14 @@ export default function Home() {
         </h1>
         <FancyButton
           className="my-8 text-2xl animate-translate-up"
-          href={"#about-me-section"}
+          href={"#about-me"}
         >
           About Me
         </FancyButton>
       </section>
       <NavBar />
-      <Section className="flex flex-row px-24 justify-between items-center" id="about-me-section" title="About Me">
-        <p data-aos="fade-right" data-aos-delay="100" className="text-xl max-w-3xl border rounded-4xl p-12 text-left">
+      <Section className="flex flex-col md:flex-row px-4 md:px-10 justify-between items-center" id="about-me" title="About Me">
+        <p data-aos="fade-right" data-aos-delay="100" className="text-xl max-w-3xl md:max-w-xl rounded-4xl text-left">
             {`
             I'm a full-stack software engineer with a strong foundation in backend development, product thinking, and user-centered design. I began my career in mobile development and have since worked across the stack using technologies like Java, Spring, React, and NodeJS.
 

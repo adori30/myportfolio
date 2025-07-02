@@ -26,6 +26,10 @@
   h1 {
     font-size: theme(fontSize.7xl);
   }
+
+  h3 {
+    font-size: theme(fontSize.5xl);
+  }
 }
 
 
