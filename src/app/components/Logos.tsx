@@ -62,9 +62,17 @@ function Logo({ src, name }: LogoProps) {
 
   
   return (
-    <div data-aos="zoom-in" data-aos-duration="400" data-aos-delay="300" className="flex flex-col justify-center items-center border-4 rounded-full w-36 h-36 overflow-hidden">
-      <Image src={src} alt={`${name} logo`} width={50} height={50} />
-      <a className="text-xs mt-4 font-semibold">{name}</a>
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="400"
+      data-aos-delay="300"
+      data-aos-once="true"
+      className="flex flex-col justify-center items-center w-36 h-36 overflow-hidden rounded-full p-[3px] bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600"
+    >
+      <div className="flex flex-col justify-center items-center w-full h-full bg-[var(--background)] rounded-full">
+        <Image src={src} alt={`${name} logo`} width={50} height={50} />
+        <a className="text-xs mt-4 font-semibold">{name}</a>
+      </div>
     </div>
   );
 }
