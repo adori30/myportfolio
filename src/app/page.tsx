@@ -34,7 +34,7 @@ export default function Home() {
           data-aos="fade-right"
           data-aos-delay="100"
           data-aos-once="true"
-          className="text-xl md:max-w-1/2 text-left rounded-4xl"
+          className="text-xl md:max-w-1/2 text-left rounded-4xl mb-12 md:mb-0"
         >
           {`
             I'm a full-stack software engineer with a strong foundation in both backend and frontend development, product thinking, and user-centered design. Whether building robust APIs, architecting scalable systems, or crafting engaging user interfaces, I enjoy working across the stack using technologies like Java, Spring, React, and NodeJS.

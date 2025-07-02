@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 
 
@@ -16,40 +18,74 @@ export default function Logos() {
   // Manual positions for 7 logos in a hexagonal/circle-like pattern
   // Centered in an 800x800px container, logo size 144px
   const logoSize = 144;
-  const center = 300;
-  const offset = 180; // vertical offset between rows (increased from 160)
-  const sideOffsetX = 160; // horizontal offset for side columns
-  const sideOffsetY = 90;  // vertical offset for side columns (increased from 62)
 
-  // Manually calculated positions for a visually pleasing circle/hex pattern
-  const positions = [
-    // Center column (3 logos)
-    { x: center, y: center - offset },
-    { x: center, y: center },
-    { x: center, y: center + offset },
-    // Left column (2 logos)
-    { x: center - sideOffsetX, y: center - sideOffsetY },
-    { x: center - sideOffsetX, y: center + sideOffsetY },
-    // Right column (2 logos)
-    { x: center + sideOffsetX, y: center - sideOffsetY },
-    { x: center + sideOffsetX, y: center + sideOffsetY },
+  // Desktop positions
+  const centerDesktop = 300;
+  const offsetDesktop = 180;
+  const sideOffsetXDesktop = 160;
+  const sideOffsetYDesktop = 90;
+  const positionsDesktop = [
+    { x: centerDesktop, y: centerDesktop - offsetDesktop },
+    { x: centerDesktop, y: centerDesktop },
+    { x: centerDesktop, y: centerDesktop + offsetDesktop },
+    { x: centerDesktop - sideOffsetXDesktop, y: centerDesktop - sideOffsetYDesktop },
+    { x: centerDesktop - sideOffsetXDesktop, y: centerDesktop + sideOffsetYDesktop },
+    { x: centerDesktop + sideOffsetXDesktop, y: centerDesktop - sideOffsetYDesktop },
+    { x: centerDesktop + sideOffsetXDesktop, y: centerDesktop + sideOffsetYDesktop },
+  ];
+
+  // Mobile positions
+  const centerMobile = 200;
+  const offsetMobile = 150;
+  const sideOffsetXMobile = 100;
+  const sideOffsetYMobile = 75;
+  const positionsMobile = [
+    { x: centerMobile, y: centerMobile - offsetMobile },
+    { x: centerMobile, y: centerMobile },
+    { x: centerMobile, y: centerMobile + offsetMobile },
+    { x: centerMobile - sideOffsetXMobile, y: centerMobile - sideOffsetYMobile },
+    { x: centerMobile - sideOffsetXMobile, y: centerMobile + sideOffsetYMobile },
+    { x: centerMobile + sideOffsetXMobile, y: centerMobile - sideOffsetYMobile },
+    { x: centerMobile + sideOffsetXMobile, y: centerMobile + sideOffsetYMobile },
   ];
 
   return (
-    <div className="relative w-[600px] h-[600px]">
-      {positions.map((pos, i) => (
-        <div
-          key={logos[i]?.key ?? i}
-          className="absolute"
-          style={{
-            left: `${pos.x - logoSize / 2}px`,
-            top: `${pos.y - logoSize / 2}px`,
-          }}
-        >
-          {logos[i]}
-        </div>
-      ))}
-    </div>
+    <>
+      {/* Desktop */}
+      <div className="relative w-[600px] h-[600px] hidden sm:block">
+        {positionsDesktop.map((pos, i) => (
+          <div
+            key={logos[i]?.key ?? i}
+            className="absolute"
+            style={{
+              left: `${pos.x - logoSize / 2}px`,
+              top: `${pos.y - logoSize / 2}px`,
+              width: `${logoSize}px`,
+              height: `${logoSize}px`,
+            }}
+          >
+            {logos[i]}
+          </div>
+        ))}
+      </div>
+      {/* Mobile */}
+      <div className="relative w-[400px] h-[400px] block sm:hidden">
+        {positionsMobile.map((pos, i) => (
+          <div
+            key={logos[i]?.key ?? i}
+            className="absolute"
+            style={{
+              left: `${pos.x - logoSize / 2}px`,
+              top: `${pos.y - logoSize / 2}px`,
+              width: `${logoSize}px`,
+              height: `${logoSize}px`,
+            }}
+          >
+            {logos[i]}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -67,10 +103,16 @@ function Logo({ src, name }: LogoProps) {
       data-aos-duration="400"
       data-aos-delay="300"
       data-aos-once="true"
-      className="flex flex-col justify-center items-center w-36 h-36 overflow-hidden rounded-full p-[3px] bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600"
+      className="flex flex-col justify-center items-center w-28 h-28 md:w-36 md:h-36 overflow-hidden rounded-full p-[3px] bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600"
     >
       <div className="flex flex-col justify-center items-center w-full h-full bg-[var(--background)] rounded-full">
-        <Image src={src} alt={`${name} logo`} width={50} height={50} />
+        <Image
+          src={src}
+          alt={`${name} logo`}
+          width={50}
+          height={50}
+          className="w-[35px] h-[35px] md:w-[50px] md:h-[50px]"
+        />
         <a className="text-xs mt-4 font-semibold">{name}</a>
       </div>
     </div>
