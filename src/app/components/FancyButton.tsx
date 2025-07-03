@@ -12,6 +12,8 @@ type Props = {
 
 export default function FancyButton({ children, className, onClick, href }: Props) {
   const btnRef = useRef<HTMLButtonElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isHoveringRef = useRef(false);
   const [ripple, setRipple] = useState<{
     x: number;
     y: number;
@@ -22,18 +24,34 @@ export default function FancyButton({ children, className, onClick, href }: Prop
   function handleMouseEnter(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
+    isHoveringRef.current = true;
+    
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    
     const rect = btnRef.current!.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     setRipple({ x, y, show: false, key: Date.now() });
 
     // Trigger animation after DOM renders
-    setTimeout(() => {
-      setRipple((prev) => ({ ...prev, show: true }));
+    timeoutRef.current = setTimeout(() => {
+      if (isHoveringRef.current) {
+        setRipple((prev) => ({ ...prev, show: true }));
+      }
     }, 50);
   }
 
   function handleMouseLeave() {
+    isHoveringRef.current = false;
+    
+    // Clear any pending timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    
     setRipple((r) => ({ ...r, show: false }));
   }
 
