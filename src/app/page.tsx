@@ -11,7 +11,7 @@ export default function Home() {
         <CanvasBackground className="absolute" />
         <h1 className="z-10 animate-zoom-in">
           {`Hi, I'm `}
-          <span className="bg-gradient-to-r to-teal-300 from-teal-700 bg-clip-text text-transparent font-semibold">
+          <span className="bg-gradient-to-r to-teal-300 from-teal-700 bg-clip-text text-transparent font-semibold animate-gradient-x">
             Adrià
           </span>
           <br />
