@@ -1,7 +1,7 @@
 export default function NavBar() {
   return (
     <section
-      className="flex flex-row items-center px-4 text-xl z-20 bg-gradient-to-r from-teal-300 to-teal-700
+      className="flex flex-row items-center px-4 text-xl z-20 bg-teal-700
      justify-end w-full h-16 sticky top-0 gap-12"
     >
       <MenuItem href="#about-me">About Me</MenuItem>

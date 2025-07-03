@@ -69,7 +69,7 @@ export default function Logos() {
         ))}
       </div>
       {/* Mobile */}
-      <div className="relative w-[400px] h-[400px] block sm:hidden">
+      <div className="relative w-[400px] h-[400px] block sm:hidden mb-16">
         {positionsMobile.map((pos, i) => (
           <div
             key={logos[i]?.key ?? i}

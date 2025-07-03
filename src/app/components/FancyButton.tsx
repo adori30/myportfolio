@@ -42,7 +42,7 @@ export default function FancyButton({ children, className, onClick, href }: Prop
       <button
         ref={btnRef}
         onClick={onClick}
-        className={`relative overflow-hidden border border-teal-500 text-teal-500 hover:text-slate-900 transition-all duration-300 p-4 rounded-2xl cursor-pointer z-10 ${className}`}
+        className={`relative overflow-hidden md:border md:border-teal-500 md:text-teal-500 text-white bg-teal-600 md:bg-transparent md:hover:text-slate-900 transition-all duration-300 p-4 rounded-2xl cursor-pointer z-10 ${className}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

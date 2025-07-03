@@ -8,7 +8,7 @@ type Props = {
 export default function Section({ title, className, children, id }: Props) {
   return (
     <section
-      className="px-8 flex flex-col w-full h-screen"
+      className="px-8 flex flex-col w-full min-h-screen"
       id={id}
     >
       <div className="relative inline-block w-96 md:h-32 self-center mb-12">
