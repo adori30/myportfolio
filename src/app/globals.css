@@ -27,14 +27,35 @@
   h1 {
     font-size: theme(fontSize.5xl);
   }
-  @media (min-width: 640px) {
-    h1 {
-      font-size: theme(fontSize.7xl);
-    }
+  h2 {
+    font-size: theme(fontSize.3xl);
   }
 
   h3 {
-    font-size: theme(fontSize.5xl);
+    font-size: theme(fontSize.3xl);
+  }
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: theme(fontSize.6xl);
+    }
+    h2 {
+      font-size: theme(fontSize.5xl);
+    }
+    h3 {
+      font-size: theme(fontSize.4xl);
+    }
+  }
+  @media (min-width: 2048px) {
+    h1 {
+      font-size: theme(fontSize.7xl);
+    }
+    h2 {
+      font-size: theme(fontSize.6xl);
+    }
+    
+    h3 {
+      font-size: theme(fontSize.5xl);
+    }
   }
 }
 
