@@ -20,7 +20,7 @@ function Bite(props: React.ComponentProps<typeof Project.Root>) {
         src="/bitepic.webp"
         className="aspect-[1440/2560] h-[50vh] md:h-[40vh] xl:h-[50vh]"
       />
-      <Project.Text title="Bite Mobile App">
+      <Project.Text title="Bite Mobile App" repo="Bite">
         Bite is a mobile app that allows you to swipe on places to eat and match
         with your friends. Deciding on where to grab a Bite has never been
         easier!
@@ -64,7 +64,7 @@ function SummaryBot(props: React.ComponentProps<typeof Project.Root>) {
         src="/aisummarybot.jpg"
         className="aspect-[1/1] h-[30vh] xl:ml-8 xl:my-24"
       />
-      <Project.Text title="AI Summary Bot">
+      <Project.Text title="AI Summary Bot" repo="ai_summary_telegram_bot">
         A Telegram bot that uses AI to monitor and summarize recent
         conversations in group chats.
         <br />
