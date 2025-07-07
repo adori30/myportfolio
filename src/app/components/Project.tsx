@@ -96,7 +96,7 @@ function GithubButton({ repo, className }: GithubButtonProps) {
     transition-transform duration-200 hover:scale-110
      ${className}`}
       >
-        <a>Source Code</a>
+        <span>Source Code</span>
         <Image src={"/github.svg"} height={32} width={32} alt="github logo" />
       </button>
     </a>
