@@ -4,7 +4,7 @@ import Section from "../components/Section";
 export default function IntroSection() {
   return (
     <Section
-      className="flex flex-1 flex-col md:flex-row md:gap-10 px-4 md:px-10 justify-between min-h-screen md:min-h-0 md:h-[600px] md:items-center md:justify-center"
+      className="flex flex-1 flex-col md:flex-row md:gap-6 xl:gap-24 px-4 md:px-5 justify-between min-h-screen md:min-h-0 md:h-[600px] md:items-center md:justify-center"
       id="about-me"
       title="About Me"
     >

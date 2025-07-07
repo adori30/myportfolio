@@ -18,7 +18,7 @@ function Bite(props: React.ComponentProps<typeof Project.Root>) {
     <Project.Root {...props}>
       <Project.Image
         src="/bitepic.webp"
-        className="aspect-[1440/2560] h-[50vh]"
+        className="aspect-[1440/2560] h-[50vh] md:h-[40vh] xl:h-[50vh]"
       />
       <Project.Text title="Bite Mobile App">
         Bite is a mobile app that allows you to swipe on places to eat and match
@@ -49,6 +49,9 @@ function DFWKIK(props: React.ComponentProps<typeof Project.Root>) {
         Features a robust user management system, Stripe integration for
         membership subscriptions and store purchases, and is deployed on AWS
         with MongoDB as the database.
+        <br />
+        <br />
+        (Not yet live)
       </Project.Text>
     </Project.Root>
   );
@@ -59,7 +62,7 @@ function SummaryBot(props: React.ComponentProps<typeof Project.Root>) {
     <Project.Root {...props}>
       <Project.Image
         src="/aisummarybot.jpg"
-        className="aspect-[1/1] h-[30vh] md:ml-8 md:my-24"
+        className="aspect-[1/1] h-[30vh] xl:ml-8 xl:my-24"
       />
       <Project.Text title="AI Summary Bot">
         A Telegram bot that uses AI to monitor and summarize recent
