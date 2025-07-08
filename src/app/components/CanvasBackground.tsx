@@ -161,15 +161,22 @@ export default function CanvasBackground({ className }: Props) {
     function animate() {
       if (animateHeader && ctx) {
         ctx.clearRect(0, 0, width, height);
+        
+        // Use smaller effect radius on mobile devices
+        const isMobile = isMobileDevice();
+        const closeDistance = isMobile ? 8000 : 20000;
+        const mediumDistance = isMobile ? 25000 : 80000;
+        const farDistance = isMobile ? 50000 : 160000;
+        
         for (const i in points) {
           // detect points in range
-          if (Math.abs(getDistance(target, points[i])) < 20000) {
+          if (Math.abs(getDistance(target, points[i])) < closeDistance) {
             points[i].active = 0.3;
             points[i].circle!.active = 0.6;
-          } else if (Math.abs(getDistance(target, points[i])) < 80000) {
+          } else if (Math.abs(getDistance(target, points[i])) < mediumDistance) {
             points[i].active = 0.1;
             points[i].circle!.active = 0.3;
-          } else if (Math.abs(getDistance(target, points[i])) < 160000) {
+          } else if (Math.abs(getDistance(target, points[i])) < farDistance) {
             points[i].active = 0.02;
             points[i].circle!.active = 0.2;
           } else {
@@ -204,6 +211,12 @@ export default function CanvasBackground({ className }: Props) {
       target.y = posy;
     }
 
+    function isMobileDevice() {
+      return window.matchMedia("(max-width: 768px)").matches || 
+             'ontouchstart' in window || 
+             navigator.maxTouchPoints > 0;
+    }
+
     function scrollCheck() {
       if (document.body.scrollTop > height) animateHeader = false;
       else animateHeader = true;
@@ -220,13 +233,17 @@ export default function CanvasBackground({ className }: Props) {
     }
     animate();
 
-    window.addEventListener("mousemove", mouseMove);
+    if (!isMobileDevice()) {
+      window.addEventListener("mousemove", mouseMove);
+    }
     window.addEventListener("scroll", scrollCheck);
     window.addEventListener("resize", resize);
 
     // Cleanup
     return () => {
-      window.removeEventListener("mousemove", mouseMove);
+      if (!isMobileDevice()) {
+        window.removeEventListener("mousemove", mouseMove);
+      }
       window.removeEventListener("scroll", scrollCheck);
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(animationFrameId);
