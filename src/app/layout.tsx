@@ -25,10 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
       <AOSInit />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased overflow-x-hidden`}
       >
         {children}
         <Footer />

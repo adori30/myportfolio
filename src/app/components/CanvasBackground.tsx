@@ -223,7 +223,18 @@ export default function CanvasBackground({ className }: Props) {
     }
 
     function resize() {
+      // Cancel existing animation frame to prevent multiple loops
+      cancelAnimationFrame(animationFrameId);
+      
       initHeader();
+      
+      // Restart point animations
+      for (const i in points) {
+        shiftPoint(points[i]);
+      }
+      
+      // Restart main animation loop
+      animate();
     }
 
     // Initialize
