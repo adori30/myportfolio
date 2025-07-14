@@ -2,8 +2,8 @@
 @import 'material-icons/iconfont/material-icons.css';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #292929;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -16,7 +16,7 @@
   --animate-zoom-in: fade-zoom-in 1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #292929;
     --foreground: #ededed;
