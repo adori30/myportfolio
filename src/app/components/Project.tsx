@@ -50,14 +50,14 @@ type TextProps = {
   title?: string;
   children?: React.ReactNode;
   right?: boolean;
-  repo?: string;
-};
+} & ({ repo?: string; site?: never } | { repo?: never; site?: string });
 
-function ProjectText({ children, right, title, repo }: TextProps) {
+function ProjectText({ children, right, title, repo, site }: TextProps) {
   const textAlign = right ? "xl:text-right" : "";
   const titleStyle = right
     ? "xl:right-0 xl:bg-gradient-to-l xl:self-end"
     : "xl:left-0 xl:bg-gradient-to-r xl:self-start";
+  const buttonAlign = right ? "mt-8 xl:self-end" : "mt-8";
   return (
     <div className="xl:max-w-2/4 flex flex-col relative h-full">
       <h2
@@ -70,7 +70,8 @@ function ProjectText({ children, right, title, repo }: TextProps) {
       >
         {children}
       </p>
-      {repo && <GithubButton repo={repo} className="mt-8" />}
+      {repo && <GithubButton repo={repo} className={buttonAlign} />}
+      {site && <LiveSiteButton site={site} className={buttonAlign} />}
     </div>
   );
 }
@@ -88,16 +89,50 @@ type GithubButtonProps = {
 
 function GithubButton({ repo, className }: GithubButtonProps) {
   return (
-    <a href={`https://github.com/adori30/${repo}`} target="_blank" rel="noopener noreferrer">
+    <a href={`https://github.com/adori30/${repo}`} target="_blank" rel="noopener noreferrer" className={className}>
       <button
-        className={`flex flex-row px-4 py-2 rounded-full 
+        className={`flex flex-row px-4 py-2 rounded-full
     items-center gap-2 border-slate-700 w-fit cursor-pointer bg-slate-300
     text-slate-900 md:text-xl font-mono
-    transition-transform duration-200 hover:scale-110
-     ${className}`}
+    transition-transform duration-200 hover:scale-110`}
       >
         <span>Source Code</span>
         <Image src={"/github.svg"} height={32} width={32} alt="github logo" />
+      </button>
+    </a>
+  );
+}
+
+type LiveSiteButtonProps = {
+  site: string;
+  className?: string;
+};
+
+function LiveSiteButton({ site, className }: LiveSiteButtonProps) {
+  return (
+    <a href={site} target="_blank" rel="noopener noreferrer" className={className}>
+      <button
+        className={`flex flex-row px-4 py-2 rounded-full
+    items-center gap-2 border-slate-700 w-fit cursor-pointer bg-slate-300
+    text-slate-900 md:text-xl font-mono
+    transition-transform duration-200 hover:scale-110`}
+      >
+        <span>Live Site</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+          <path d="M2 12h20" />
+        </svg>
       </button>
     </a>
   );

@@ -40,7 +40,7 @@ function DFWKIK(props: React.ComponentProps<typeof Project.Root>) {
         src="/dfwkik.png"
         className="aspect-[1683/1069] h-[22vh] xl:h-[35vh] 2xl:h-[50vh]"
       />
-      <Project.Text title="Dallas Kendo Website" right>
+      <Project.Text title="Dallas Kendo Website" right site="https://dfwkik.org/">
         Official website for the Dallas/Fort Worth Kendo and Iaido Kyokai
         martial arts club. Fully responsive. Developed with Next.js and a self-hosted PayloadCMS
         for dynamic content and user management.
@@ -49,9 +49,6 @@ function DFWKIK(props: React.ComponentProps<typeof Project.Root>) {
         Features a robust user management system, Stripe integration for
         membership subscriptions and store purchases, and is deployed on AWS
         with MongoDB as the database.
-        <br />
-        <br />
-        (Not yet live)
       </Project.Text>
     </Project.Root>
   );
